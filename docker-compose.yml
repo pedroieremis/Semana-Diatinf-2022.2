@@ -1,0 +1,53 @@
+version: '3.9'
+
+services:
+
+  dns:
+    image: ubuntu/bind9:latest
+    container_name: dns
+    restart: always
+    ports:
+      - "53:53/udp"
+      - "53:53/tcp"
+    volumes:
+      - ./dns:/etc/bind
+    networks:
+      - infrasCode
+
+  wordpress:
+    image: wordpress
+    container_name: web
+    restart: always
+    ports:
+      - 80:80
+    environment:
+      WORDPRESS_DB_HOST: db
+      WORDPRESS_DB_NAME: wordpressdb
+      WORDPRESS_DB_USER: wordpressuser
+      WORDPRESS_DB_PASSWORD: passwdwordpress
+    volumes:
+      - ./web:/var/www/html
+    networks:
+      - infrasCode
+
+  db:
+    image: mysql:5.7
+    container_name: banco
+    restart: always
+    environment:
+      MYSQL_DATABASE: wordpressdb
+      MYSQL_USER: wordpressuser
+      MYSQL_PASSWORD: passwdwordpress
+      MYSQL_RANDOM_ROOT_PASSWORD: '1'
+    volumes:
+      - ./db:/var/lib/mysql
+    networks:
+      - infrasCode
+
+volumes:
+  wordpress:
+  db:
+  dns:
+
+networks:
+  infrasCode:

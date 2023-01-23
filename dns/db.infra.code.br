@@ -1,0 +1,16 @@
+; BIND data file for local loopback interface
+;
+$TTL	604800
+@	IN	SOA	infra.code.br. root.infra.code.br. (
+			      1		; Serial
+			 604800		; Refresh
+			  86400		; Retry
+			2419200		; Expire
+			 604800 )	; Negative Cache TTL
+;
+@	IN	NS	infra.code.br.
+@	IN	NS	ns1.infra.code.br.
+@	IN	A	192.168.0.70
+
+ns1	IN	A	192.168.0.70
+www	IN	CNAME	ns1
