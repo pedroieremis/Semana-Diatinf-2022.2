@@ -14,19 +14,44 @@ services:
     networks:
       - infrasCode
 
-  wordpress:
-    image: wordpress
-    container_name: web
+  proxy:
+    build:
+      context: ./proxy
+    image: proxy-image
+    container_name: proxy
     restart: always
     ports:
-      - 80:80
+      - "80:80"
+    depends_on:
+      - wordpress
+      - webserver
+    networks:
+      - infrasCode
+
+  wordpress:
+    image: wordpress
+    container_name: wordpress
+    restart: always
+    #ports:
+    #  - 80:80
     environment:
       WORDPRESS_DB_HOST: db
       WORDPRESS_DB_NAME: wordpressdb
       WORDPRESS_DB_USER: wordpressuser
       WORDPRESS_DB_PASSWORD: passwdwordpress
+    depends_on:
+      - db
     volumes:
       - ./web:/var/www/html
+    networks:
+      - infrasCode
+
+  webserver:
+    image: nginx:latest
+    container_name: webserver
+    restart: always
+    volumes:
+      - ./webserver:/usr/share/nginx/html
     networks:
       - infrasCode
 
@@ -46,6 +71,7 @@ services:
 
 volumes:
   wordpress:
+  webserver:
   db:
   dns:
 
