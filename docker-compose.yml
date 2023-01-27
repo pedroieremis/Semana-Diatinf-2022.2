@@ -25,6 +25,7 @@ services:
     depends_on:
       - wordpress
       - webserver
+      - dns
     networks:
       - infrasCode
 
@@ -32,8 +33,6 @@ services:
     image: wordpress
     container_name: wordpress
     restart: always
-    #ports:
-    #  - 80:80
     environment:
       WORDPRESS_DB_HOST: db
       WORDPRESS_DB_NAME: wordpressdb
@@ -42,7 +41,7 @@ services:
     depends_on:
       - db
     volumes:
-      - ./web:/var/www/html
+      - ./wordpress:/var/www/html
     networks:
       - infrasCode
 

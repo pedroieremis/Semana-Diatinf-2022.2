@@ -13,4 +13,5 @@ $TTL	604800
 @	IN	A	192.168.0.70
 
 ns1	IN	A	192.168.0.70
-www	IN	CNAME	ns1
+wordpress	IN	CNAME	ns1
+web	IN	CNAME	ns1
