@@ -10,9 +10,8 @@ $TTL	604800
 ;
 @	IN	NS	infra.code.br.
 @	IN	NS	ns1.infra.code.br.
+@	IN	A	192.168.0.19
 
-
-70	IN	PTR	infra.code.br
-70	IN	PTR	ns1
-;IPredeReversa	IN	PTR	infra.code.br
-;IPredeReversa	IN	PTR	ns1
+ns1			IN	A		192.168.0.19
+wordpress	IN	CNAME	ns1
+web			IN	CNAME	ns1

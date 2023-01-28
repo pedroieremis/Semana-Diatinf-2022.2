@@ -7,21 +7,21 @@ services:
     container_name: dns
     restart: always
     ports:
-      - "53:53/udp"
-      - "53:53/tcp"
+      - 53:53/udp
+      - 53:53/tcp
     volumes:
-      - ./dns:/etc/bind
+      - ./configs/dns:/etc/bind
     networks:
       - infrasCode
 
   proxy:
     build:
-      context: ./proxy
+      context: ./configs/proxy
     image: proxy-image
     container_name: proxy
     restart: always
     ports:
-      - "80:80"
+      - 80:80
     depends_on:
       - wordpress
       - webserver
@@ -41,7 +41,7 @@ services:
     depends_on:
       - db
     volumes:
-      - ./wordpress:/var/www/html
+      - ./apps/wordpress:/var/www/html
     networks:
       - infrasCode
 
@@ -50,7 +50,7 @@ services:
     container_name: webserver
     restart: always
     volumes:
-      - ./webserver:/usr/share/nginx/html
+      - ./apps/webserver:/usr/share/nginx/html
     networks:
       - infrasCode
 
@@ -62,9 +62,10 @@ services:
       MYSQL_DATABASE: wordpressdb
       MYSQL_USER: wordpressuser
       MYSQL_PASSWORD: passwdwordpress
+      MYSQL_ROOT_HOST: wordpress
       MYSQL_RANDOM_ROOT_PASSWORD: '1'
     volumes:
-      - ./db:/var/lib/mysql
+      - ./configs/db:/var/lib/mysql
     networks:
       - infrasCode
 
