@@ -4,7 +4,7 @@ zone "infra.code.br" {
 	file "/etc/bind/db.infra.code.br";
 };
 
-zone "0.168.192.in-addr.arpa" {
+zone "IPREVERSO.in-addr.arpa" {
 	type master;
 	file "/etc/bind/db.infra.code.br.reverse";
 };

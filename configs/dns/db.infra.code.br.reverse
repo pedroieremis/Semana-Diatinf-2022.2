@@ -11,7 +11,5 @@ $TTL	604800
 @	IN	NS	infra.code.br.
 @	IN	NS	ns1.infra.code.br.
 
-19	IN	PTR	infra.code.br
-19	IN	PTR	ns1
-;IPredeReversa	IN	PTR	infra.code.br
-;IPredeReversa	IN	PTR	ns1
+IPFINAL	IN	PTR	infra.code.br
+IPFINAL	IN	PTR	ns1
