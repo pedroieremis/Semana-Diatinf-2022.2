@@ -34,4 +34,16 @@ Para realizarmos nossas atividades, utilizaremos a solução de conteinerizaçã
    docker compose down
    ```
 
-5. 
+5. Subindo tudo de uma forma automatizada:
+   
+   Linux:
+   
+   ```shell
+   python3 auto-infra.py
+   ```
+
+       Windows:
+
+```shell
+    python auto-infra.py
+```
