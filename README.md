@@ -106,7 +106,7 @@ Se gostou do conteúdo e deseja ampliar seus conhecimentos, temos algumas indica
 
 1.  Livro: [Pro Git - Scott Chacon](https://git-scm.com/book/pt-br/v2)
 
-2. Livro: [Descomplicando o Docker]([Introdução · HonKit](https://livro.descomplicandodocker.com.br/chapters/chapter_00.html)
+2. Livro: [Descomplicando o Docker](https://livro.descomplicandodocker.com.br/chapters/chapter_00.html)
 
 3. Treinamento: [Descomplicando o Docker - Linux Tips ](https://www.linuxtips.io/course/descomplicando-o-docker)
    
