@@ -22,7 +22,7 @@ Além disso, você terá um norte teórico e prático de como implementar qualqu
 
 ### Docker
 
-É o que vai fazer a mágica acontecer! O Docker em si, pode ser instalado em vários Sistemas Operacionais. Para saber mais sobre ele, basta acessar o [Site Oficial do Docker](https://www.docker.com/). Para Instalação, vá neste Link [Aqui!]((https://docs.docker.com/engine/install/)). Também é possível adquirir um gerenciamente gráfico do Docker, para instalar, vá neste outro link [Aqui!]((https://docs.docker.com/desktop/)).
+É o que vai fazer a mágica acontecer! O Docker em si, pode ser instalado em vários Sistemas Operacionais. Para saber mais sobre ele, basta acessar o [Site Oficial do Docker](https://www.docker.com/). Para Instalação, vá neste Link [Aqui!](https://docs.docker.com/engine/install/). Também é possível adquirir um gerenciamente gráfico do Docker, para instalar, vá neste outro link [Aqui!](https://docs.docker.com/desktop/).
 
 Lembre-se de tentar sempre manter o Docker atualizado, assim ele estará executando da melhor forma possível e vai te ajudar.
 
@@ -30,7 +30,7 @@ Lembre-se de tentar sempre manter o Docker atualizado, assim ele estará executa
 
 ### Docker Compose
 
-O Docker Compose está dentro do Docker e é quem vai a parte mais legal de ver no final das contas, porque ele pode juntar tudo e subir toda a Infraestrutura de uma vez só, com a maioria ou todas as configurações já pré-estabelecidas. Instale [Aqui!]((https://docs.docker.com/compose/install/)).
+O Docker Compose está dentro do Docker e é quem vai a parte mais legal de ver no final das contas, porque ele pode juntar tudo e subir toda a Infraestrutura de uma vez só, com a maioria ou todas as configurações já pré-estabelecidas. Instale [Aqui!](https://docs.docker.com/compose/install/).
 
 Também procure manter o Docker Compose atualizado, isso com certeza te ajudará. De cara, pode ser mais complexo, porém com o tempo, você não vai largar o pé dele, e mal vai querer saber do "docker run".
 
@@ -96,6 +96,7 @@ python auto-infra.py
 
 - Ao final, quando se manda parar, abortar a execução, o Python pode acusar erro, mas não será um problema, pois foi ele quem iniciou a Infraestrutura. Erro: "KeyboardInterrupt". Caso queira retirar isso, passe o arqumento ``-d`` no final do comando na linha 34 do programa Python. Da seguinte forma: ``docker compose up -d``. No programa ficaria assim: ``os.system('docker compose up -d')``.
 
+- Caso o Script de Automatização capture ``127.0.0.1``, recomendo colocar manualmente o IP da máquina em rede, nos arquivos do DNS, para que as outras máquinas possam te alcançar.
 
 
 ### Não deixe ficar só nesse minicurso...
