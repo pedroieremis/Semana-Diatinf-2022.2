@@ -82,7 +82,7 @@ python auto-infra.py
 
 ### Considerações Finais
 
-- - Pra executar este projeto, é importante que todas as dependências estejam __atualizadas__ e que você tenha acesso as configurações da máquina hospedeira.
+- Pra executar este projeto, é importante que todas as dependências estejam __atualizadas__ e que você tenha acesso as configurações da máquina hospedeira.
 
 - Não é de extrema dependência, mas é de grande ajuda que se tenha o Git para este projeto. E pra vida também, seja utilizando o GitHub, GitLab ou outro como repositório, mas use. De cara, aconselho utilizar o GitHub para seu próprio marketing e o GitLab para algo mais profissional e restrito.
 
