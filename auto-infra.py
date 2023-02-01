@@ -1,8 +1,15 @@
-import os, socket
+import os 
+import requests
+import json
+import socket
 
 def init():
     try:
-        ip_maquina = socket.gethostbyname(socket.gethostname())
+        wan_information = requests.get("https://ipinfo.io/json")
+        if(wan_information.status_code == 200):
+            ip_maquina = json.loads(wan_information.text)["ip"]
+        else:
+            ip_maquina = socket.gethostbyname(socket.gethostname())
         octeto1 = ip_maquina.split('.')[0]
         octeto2 = ip_maquina.split('.')[1]
         octeto3 = ip_maquina.split('.')[2]
