@@ -82,9 +82,11 @@ python auto-infra.py
 
 ### Considerações Finais
 
-- Não é de extrema dependência, mas é de grande ajuda que se tenha o Git para este projeto. E pra vida, seja utilizando o GitHub, GitLab ou outro como repositório, mas use. De cara, aconselho utilizar o GitHub para seu próprio marketing e o GitLab para algo mais profissional e restrito. 
+- - Pra executar este projeto, é importante que todas as dependências estejam __atualizadas__ e que você tenha acesso as configurações da máquina hospedeira.
 
-- Pra executar este projeto, é importante que todas as dependências estejam __atualizadas__ e que você tenha acesso as configurações da máquina hospedeira.
+- Não é de extrema dependência, mas é de grande ajuda que se tenha o Git para este projeto. E pra vida também, seja utilizando o GitHub, GitLab ou outro como repositório, mas use. De cara, aconselho utilizar o GitHub para seu próprio marketing e o GitLab para algo mais profissional e restrito.
+
+- Na instalação do Docker, é comum que se seguir a documentação, também se obtenha o Docker Compose, não havendo a neccessidade de instalar fora a parte. Para Windows, no Docker Desktop, também vem integrado o Compose.
 
 - Ao final, quando se aborta a execução, o Python pode acusar erro, mas não será um problema, pois foi ele quem iniciou a Infraestrutura. Erro: "KeyboardInterrupt". Caso queira retirar isso, passe o arqumento ``-d`` no final do comando na linha 34 do programa em Python. Da seguinte forma: ``docker compose up -d``. No programa ficaria assim: ``os.system('docker compose up -d')``.
 
