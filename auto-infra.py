@@ -1,15 +1,29 @@
-import os 
+import os
 import requests
 import json
 import socket
 
 def init():
     try:
-        wan_information = requests.get("https://ipinfo.io/json")
-        if(wan_information.status_code == 200):
-            ip_maquina = json.loads(wan_information.text)["ip"]
-        else:
+        rede = int(input('DNS será Provisionado a partir de:\n1 - WAN\n2 - LAN\n'))
+        if rede == 1:
+            wan_information = requests.get("https://ipinfo.io/json")
+            if(wan_information.status_code == 200):
+                ip_maquina = json.loads(wan_information.text)["ip"]
+                provisionamento(ip_maquina)
+            else:
+                ip_maquina = socket.gethostbyname(socket.gethostname())
+                provisionamento(ip_maquina)
+        elif rede == 2:
             ip_maquina = socket.gethostbyname(socket.gethostname())
+            provisionamento(ip_maquina)
+        else:
+            print('Opção Inválida, tente novamente.')
+    except Exception as stdrr:
+        print(f'Ops! Ocorreu algum erro na execução do Init\n\nEste foi o erro Capturado: {stdrr}')
+
+def provisionamento(ip_maquina):
+    try:
         octeto1 = ip_maquina.split('.')[0]
         octeto2 = ip_maquina.split('.')[1]
         octeto3 = ip_maquina.split('.')[2]
@@ -49,6 +63,6 @@ def init():
         else:
             print('Opção Inválida! Preciso de sua Confirmação.\n')
     except Exception as stdrr:
-        print(f'Ops! Ocorreu algum erro na execução do Programa!\n\nEste foi o erro Capturado: {stdrr}')
+        print(f'Ops! Ocorreu algum erro na execução do Provisionamento\n\nEste foi o erro Capturado: {stdrr}')
 
 init()
