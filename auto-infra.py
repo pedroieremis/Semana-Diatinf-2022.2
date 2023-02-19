@@ -3,6 +3,16 @@ import requests
 import json
 import socket
 
+def verificar():
+    ip_maquina = socket.gethostbyname(socket.gethostname())
+    if ip_maquina.split('.')[0] == '127':
+        print('-'*70)
+        problem = input('Infelizmente o Script capturou o IP de "localhost". Precisa-se do seu IP da rede LAN.\n'
+        'Por favor digite seu IP na rede em que se encontra > ')
+        provisionamento(ip_maquina=problem)
+    else:
+        provisionamento(ip_maquina)
+
 def init():
     try:
         rede = int(input('DNS será Provisionado a partir de:\n1 - WAN\n2 - LAN\n'))
@@ -12,11 +22,9 @@ def init():
                 ip_maquina = json.loads(wan_information.text)["ip"]
                 provisionamento(ip_maquina)
             else:
-                ip_maquina = socket.gethostbyname(socket.gethostname())
-                provisionamento(ip_maquina)
+                verificar()
         elif rede == 2:
-            ip_maquina = socket.gethostbyname(socket.gethostname())
-            provisionamento(ip_maquina)
+            verificar()
         else:
             print('Opção Inválida, tente novamente.')
     except Exception as stdrr:
@@ -56,12 +64,12 @@ def provisionamento(ip_maquina):
 
             except Exception as erro_ar1:
                 print(f'Ocorreu algum Erro ao Abrir os arquivos do DNS.\n\nERRO: {erro_ar1}')
-        
+
         elif confirma.lower() == 'n':
             print('Não? Por favor, Reinicie os Procedimentos...\n')
 
         else:
-            print('Opção Inválida! Preciso de sua Confirmação.\n')
+            print('Opção Inválida! Confirme por favor.\n')
     except Exception as stdrr:
         print(f'Ops! Ocorreu algum erro na execução do Provisionamento\n\nEste foi o erro Capturado: {stdrr}')
 
